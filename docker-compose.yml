@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+    env_file:
+      - .env
+    container_name: horse_club_app
+    ports:
+      - 8011:8000
