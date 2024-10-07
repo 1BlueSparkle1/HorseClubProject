@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "horseclub"
+version = "0.1.0"
+description = ""
+authors = ["BlueSparkle"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.114.2"
+uvicorn = {extras = ["standart"], version = "^0.30.6"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.34"}
+aiosqlite = "^0.20.0"
+pydantic-settings = "^2.5.2"
+alembic = "^1.13.2"
+pyjwt = {extras = ["crypto"], version = "^2.9.0"}
+bcrypt = "^4.2.0"
+python-multipart = "^0.0.9"
+fastapi-filter = "^2.0.0"
+fastapi-pagination = "^0.12.27"
+asyncpg = "^0.29.0"
+gunicorn = "^23.0.0"
+docker = "^7.1.0"
+compose = "^1.6.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+black = "^24.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
