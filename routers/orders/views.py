@@ -41,8 +41,16 @@ async def get_orders(
 
 
 @router.get("/my_orders", response_model=Page[Order])
-async def get_my_orders():
-    pass
+async def get_my_orders(
+    order: Order = Depends(order_by_id),
+    user_me: User = Depends(get_current_auth_user),
+):
+    if user_me.id == order.user_id:
+        return order
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail="Order not found.",
+    )
 
 
 @router.post(
