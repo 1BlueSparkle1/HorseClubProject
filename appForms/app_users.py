@@ -15,9 +15,3 @@ user_group = GroupConfig(
 
 
 app_user = App(db=db_helper.session_dependency, groups=[user_group])
-
-
-app = FastAPI()
-
-
-app.mount("/appUser/", app_user.app)

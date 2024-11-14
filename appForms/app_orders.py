@@ -15,9 +15,3 @@ order_group = GroupConfig(
 
 
 app_order = App(db=db_helper.session_dependency, groups=[order_group])
-
-
-app = FastAPI()
-
-
-app.mount("/appOrder", app_order.app)
