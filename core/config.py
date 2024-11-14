@@ -32,7 +32,9 @@ class Settings(BaseSettings):
 
     @property
     def database_url_asyncpg(self):
+        # return f"postgresql+asyncpg://testUser:1234@localhost:5432/postgres"
         return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+
 
     # db: DbSettings = DbSettings()
     db_echo: bool = False
