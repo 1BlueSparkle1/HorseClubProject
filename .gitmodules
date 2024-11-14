@@ -1,0 +1,3 @@
+[submodule "lib/fast_gui"]
+	path = lib/fast_gui
+	url = git@github.com:Maxim-Vl/fasten_crud_ui.git
