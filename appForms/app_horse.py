@@ -20,10 +20,5 @@ app_horse = App(
     custom_forms=[],
     routers=[])
 
-app_cls = app_horse.app
-
-app = FastAPI()
-
-app.mount("/appHorse/", app_cls)
 
 
