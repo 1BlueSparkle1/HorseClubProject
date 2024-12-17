@@ -4,9 +4,11 @@ from fastapi import FastAPI
 
 import uvicorn
 
-from appForms.app_horse import app_horse
-from appForms.app_orders import app_order
-from appForms.app_users import app_user
+from appForms.app_horse import MyHorseForm, ListHorseForm
+from appForms.app_orders import MyOrderForm, ListOrderForm
+from appForms.app_users import MyUserForm, ListUserForm
+from core.models import db_helper
+from lib.fast_gui import App
 from routers import router as router_v1
 from auth.jwt_auth import router as router_jwt
 
@@ -22,9 +24,9 @@ app = FastAPI(title="Horse Club", lifespan=lifespan)
 app.include_router(router=router_v1)
 app.include_router(router=router_jwt)
 
-app.mount("/appHorse/", app_horse.app)
-app.mount("/appUser/", app_user.app)
-app.mount("/appOrder", app_order.app)
+form_app = App(db=db_helper.session_dependency, custom_forms=[MyUserForm, MyHorseForm, MyOrderForm, ListUserForm, ListHorseForm, ListOrderForm])
+
+app.mount("/forms/", form_app.app)
 
 
 @app.get("/")
